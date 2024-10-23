@@ -41,7 +41,6 @@ export default function Page() {
             <th onClick={handleSort} style={{ cursor: "pointer" }}>
               Título PT {sortOrder === "asc" ? "▲" : "▼"}
             </th>
-            <th>Título EN</th>
             <th>Data</th>
             <th>Tipologia</th>
             <th>Técnica</th>
@@ -52,8 +51,10 @@ export default function Page() {
           {sortedData.map((item, i) => (
             <tr key={i}>
               <td>{item[1] && <img src={item[1]} alt={`Imagem ${i}`} />}</td>
-              <td>{item[2]}</td>
-              <td>{item[3]}</td>
+              <td>
+                {item[2]} <br />
+                <em>{item[3]}</em>
+              </td>
               <td>{item[4]}</td>
               <td>{item[5]}</td>
               <td>{item[6]}</td>
