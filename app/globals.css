@@ -20,7 +20,7 @@ th {
 }
 
 tr td:first-of-type {
-  width: 4rem;
+  width: 10rem;
 }
 
 thead {
@@ -34,5 +34,6 @@ tbody tr:first-of-type {
 }
 
 img {
-  height: 5rem;
+  height: 7rem;
+  width: auto;
 }

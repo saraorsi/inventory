@@ -50,7 +50,14 @@ export default function Page() {
         <tbody>
           {sortedData.map((item, i) => (
             <tr key={i}>
-              <td>{item[1] && <img src={item[1]} alt={`Imagem ${i}`} />}</td>
+              <td>
+                {item[1] && (
+                  <img
+                    src={`http://images.sarabichao.com/${item[1]}`}
+                    alt={`Imagem ${i}`}
+                  />
+                )}
+              </td>
               <td>
                 {item[2]} <br />
                 <em>{item[3]}</em>
