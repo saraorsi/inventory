@@ -30,7 +30,7 @@ export async function getSheetData(): Promise<SheetData> {
   const glSheets = google.sheets({ version: "v4", auth: glAuth });
 
   const spreadsheetId = getEnvVariable("SHEET_ID");
-  const range = "Teste";
+  const range = "Folha1";
 
   try {
     const response = await glSheets.spreadsheets.values.get({
