@@ -21,15 +21,17 @@ export default function Page() {
     fetchData();
   }, []);
 
-  const sortedData = [...sheetData]
-    .filter((item) => item[2])
-    .sort((a, b) => {
-      const valA = a[sortConfig.column]?.toLowerCase() || "";
-      const valB = b[sortConfig.column]?.toLowerCase() || "";
-      if (valA < valB) return sortConfig.order === "asc" ? -1 : 1;
-      if (valA > valB) return sortConfig.order === "asc" ? 1 : -1;
-      return 0;
-    });
+  // const sortedData = [...sheetData]
+  //   .filter((item) => item[0])
+  //   .sort((a, b) => {
+  //     const valA = a[sortConfig.column]?.toLowerCase() || "";
+  //     const valB = b[sortConfig.column]?.toLowerCase() || "";
+  //     if (valA < valB) return sortConfig.order === "asc" ? -1 : 1;
+  //     if (valA > valB) return sortConfig.order === "asc" ? 1 : -1;
+  //     return 0;
+  //   });
+
+  // console.log("data", sortedData);
 
   const handleSort = (column: number) => {
     setSortConfig(
@@ -50,6 +52,9 @@ export default function Page() {
       <table>
         <thead>
           <tr>
+            <th onClick={() => handleSort(0)} style={{ cursor: "pointer" }}>
+              ID {getSortIcon(0)}
+            </th>
             <th>Imagem</th>
             <th onClick={() => handleSort(2)} style={{ cursor: "pointer" }}>
               Title PT {getSortIcon(2)}
@@ -70,8 +75,9 @@ export default function Page() {
           </tr>
         </thead>
         <tbody>
-          {sortedData.map((item, i) => (
+          {sheetData.map((item, i) => (
             <tr key={i}>
+              <td>{item[0]}</td>
               <td>
                 {item[1] && (
                   <img
